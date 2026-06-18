@@ -1,0 +1,9 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+.agents-cli-scripts/
+.google-agents-cli/
+artifacts/
+*.log
+.pytest_cache/
