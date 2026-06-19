@@ -129,5 +129,5 @@ root_agent = Agent(
 
 app = App(
     root_agent=root_agent,
-    name="shopping_assistant_app",
+    name="app",
 )

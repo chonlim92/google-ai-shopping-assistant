@@ -1,4 +1,5 @@
 # shopping-assistant
+**Author:** Chong Kiat Lim (using Google Antigravity)
 
 Simple ReAct agent
 Agent generated with `agents-cli` version `0.5.0`
@@ -108,3 +109,28 @@ To set up your production infrastructure, run `agents-cli infra cicd`.
 ## Observability
 
 Built-in telemetry exports to Cloud Trace, BigQuery, and Cloud Logging.
+
+---
+
+## Final Status
+
+The AI Shopping Assistant agent is successfully secured, evaluated, and deployed in the local development playground environment.
+
+### ADK Playground UI Demonstration
+![ADK Playground UI](../docs/screenshots/Screenshot_ADK_Playground.jpg)
+
+---
+
+## Tech Stacks
+
+The following table summarizes all demonstrated skills and security guardrails implemented throughout the vibe coding sessions:
+
+| Skill / Guardrail | Description |
+| :--- | :--- |
+| **Tool Call Interception Hook** | Implemented `validate_tool_call.py` hooked via `PreToolUse` in `.agents/hooks.json` to inspect command execution dynamically and block destructive commands (e.g., `rm -rf`). |
+| **STRIDE Threat Modeling** | Established a local agent skill `stride-threat-model` to systematically audit system boundaries, entry points, and threats (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, Elevation of Privilege). |
+| **TDD Planning Gate** | Appended a strict architectural gate in `CONTEXT.md` requiring security assertions and boundary check designs before initiating any coding. |
+| **Secure Discount Code & Checkout** | Enhanced `agent.py` to prevent unauthorized discount code redemptions and cart checkouts by enforcing strict `user_id` validation and discount state checking. |
+| **Automated Security Testing** | Wrote an outcome-based security test suite using `pytest` to guarantee that all business rules and access controls hold true against malicious edge cases. |
+| **API Key Retrieval Safety** | Fixed API key management by migrating from hardcoded strings to dynamic environment retrieval, verified by custom Semgrep rules in pre-commit git hooks. |
+| **Local Playground Hosting** | Hosted and verified the interactive developer workspace using ADK Web Server on custom port `8082`. |
