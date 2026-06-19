@@ -6,8 +6,8 @@ from google.adk.apps import App
 from google.adk.models import Gemini
 from google.genai import types
 
-# Simulated hardcoded API Key for security demonstration
-api_key = "AIzaSyD-mock-key-value-12345"
+# Retrieve simulated API Key from environment variables (avoiding hardcoding)
+api_key = os.environ.get("GEMINI_API_KEY")
 
 # Setup Google AI Studio API Key Authentication
 os.environ["GOOGLE_GENAI_USE_ENTERPRISE"] = "FALSE"
