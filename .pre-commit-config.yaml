@@ -1,0 +1,21 @@
+repos:
+  # All hooks are local (language: script or system) to avoid pre-commit
+  # creating remote virtualenvs — which hang on Windows due to
+  # network timeouts or Git path-length limits.
+
+  - repo: local
+    hooks:
+      # --- Security: Semgrep secrets + python ruleset ---
+      # Uses run_semgrep.bat wrapper to call the globally installed uv semgrep tool.
+      # 'language: script' runs the entry as a script directly (no PATH lookup needed).
+      - id: semgrep-security-scan
+        name: semgrep-security-scan (secrets + python)
+        language: script
+        entry: run_semgrep.bat
+        args:
+          - --config=p/secrets
+          - --config=p/python
+          - --error
+          - --quiet
+        types: [python]
+        pass_filenames: true

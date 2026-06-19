@@ -1,0 +1,14 @@
+rules:
+  - id: detect-hardcoded-google-api-key
+    patterns:
+      - pattern-either:
+          - pattern: |
+              api_key = "$KEY"
+          - pattern: |
+              api_key="$KEY"
+      - metavariable-regex:
+          metavariable: $KEY
+          regex: '^AIzaSy[A-Za-z0-9_\-]*'
+    message: "Security violation: Hardcoded Google API key detected! Do not commit private keys to version control."
+    languages: [python]
+    severity: ERROR

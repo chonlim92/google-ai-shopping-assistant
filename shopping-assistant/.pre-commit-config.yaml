@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: trailing-whitespace
+        name: Trim Trailing Whitespace
+        entry: uv run trailing-whitespace-fixer
+        language: system
+        types: [text]
+      - id: end-of-file-fixer
+        name: Fix End of Files
+        entry: uv run end-of-file-fixer
+        language: system
+        types: [text]
+      - id: semgrep-security-scan
+        name: Semgrep Custom Security Scan
+        entry: run_semgrep.bat
+        language: script
+        args:
+          - --config=shopping-assistant/.semgrep/rules.yaml
+          - --error
+          - --quiet
+        types: [python]
+        pass_filenames: true
