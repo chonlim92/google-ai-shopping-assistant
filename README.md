@@ -117,7 +117,7 @@ Built-in telemetry exports to Cloud Trace, BigQuery, and Cloud Logging.
 The AI Shopping Assistant agent is successfully secured, evaluated, and deployed in the local development playground environment.
 
 ### ADK Playground UI Demonstration
-![ADK Playground UI](../docs/screenshots/Screenshot_ADK_Playground.jpg)
+![ADK Playground UI](docs/screenshots/Screenshot_ADK_Playground.jpg)
 
 ---
 
